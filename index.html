@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Valentine's Day 💖</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #fff0f6, #ffb3c6);
+    font-family: "Comic Sans MS", cursive;
+    overflow: hidden;
+}
+
+/* GIFT BOX */
+.box {
+    width: 160px;
+    height: 160px;
+    background: #ff4d6d;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.lid {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 160px;
+    height: 40px;
+    background: #ff758f;
+    border-radius: 10px;
+    transition: 0.8s ease;
+}
+
+.ribbon {
+    position: absolute;
+    width: 20px;
+    height: 160px;
+    background: #fff;
+    left: 70px;
+}
+
+.ribbon::after {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 20px;
+    background: #fff;
+    top: 70px;
+    left: -70px;
+}
+
+.click-text {
+    position: absolute;
+    bottom: -35px;
+    width: 100%;
+    text-align: center;
+    color: #800f2f;
+    font-size: 18px;
+}
+
+/* FLOWER CONTAINER */
+.flower {
+    display: none;
+    position: relative;
+    width: 240px;
+    height: 430px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* PETALS */
+.petal {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    background: #ff8fab;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: bloom 1s forwards;
+}
+
+@keyframes bloom {
+    to { transform: scale(1); }
+}
+
+.petal:nth-child(1){ top:0; left:72px; animation-delay:.2s; }
+.petal:nth-child(2){ top:72px; left:0; animation-delay:.4s; }
+.petal:nth-child(3){ top:72px; right:0; animation-delay:.6s; }
+.petal:nth-child(4){ top:140px; left:72px; animation-delay:.8s; }
+
+/* CENTER FACE */
+.center {
+    position:absolute;
+    top:72px;
+    left:72px;
+    width:95px;
+    height:95px;
+    background:#fff1a8;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    animation: pop 1s ease-out forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.face {
+    position:absolute;
+    top:32px;
+    font-size:18px;
+    animation: blink 4s infinite;
+}
+
+@keyframes blink {
+    0%,95%,100% { opacity:1; }
+    96%,98% { opacity:0; }
+}
+
+/* STEM + LEAF */
+.stem {
+    position:absolute;
+    top:180px;
+    left:115px;
+    width:10px;
+    height:170px;
+    background:#52b788;
+    border-radius:10px;
+}
+
+.leaf {
+    position:absolute;
+    top:250px;
+    left:45px;
+    width:80px;
+    height:40px;
+    background:#74c69d;
+    border-radius:0 50px 50px 0;
+    transform: rotate(-20deg);
+}
+
+/* TEXT */
+.name {
+    position:absolute;
+    bottom:-40px;
+    width:100%;
+    text-align:center;
+    font-size:22px;
+    color:#9d0208;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0%,100% { text-shadow: 0 0 5px #ffb3c6; }
+    50% { text-shadow: 0 0 15px #ff4d6d; }
+}
+
+.message {
+    position:absolute;
+    bottom:-70px;
+    width:100%;
+    text-align:center;
+    font-size:18px;
+    color:#800f2f;
+}
+</style>
+</head>
+
+<body>
+
+<!-- GIFT BOX -->
+<div class="box" onclick="openGift()" id="gift">
+    <div class="lid" id="lid"></div>
+    <div class="ribbon"></div>
+    <div class="click-text">Click me 🎁</div>
+</div>
+
+<!-- FLOWER -->
+<div class="flower" id="flower">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+
+    <div class="center">
+        ❤
+        <div class="face">•ᴗ•</div>
+    </div>
+
+    <div class="stem"></div>
+    <div class="leaf"></div>
+
+   
+    <div class="message">Happy Valentine’s Day 🌸
+       
+</div>
+
+<script>
+function openGift() {
+    document.getElementById("lid").style.transform = "translateY(-80px) rotate(-15deg)";
+    
+    setTimeout(() => {
+        document.getElementById("gift").style.display = "none";
+        document.getElementById("flower").style.display = "block";
+    }, 800);
+}
+</script>
+
+</body>
+</html>
+
